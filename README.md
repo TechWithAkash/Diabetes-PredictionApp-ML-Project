@@ -2,7 +2,8 @@
 
 # Dia-Insight: Diabetes Prediction Application 🩺💉
 
-![Dia-Insight Logo](https://yourwebsite.com/path/to/logo.png)
+![Designer (1)](https://github.com/TechWithAkash/Diabetes-PredictionApp-ML-Project/assets/134140640/d0f7f638-864b-4ffa-b084-501ee2cd1c39)
+
 
 ## Overview 🌟
 Dia-Insight is an innovative web application designed to empower users with early detection of diabetes. Leveraging advanced algorithms and medical data analysis, it provides accurate predictions to assess the risk of developing diabetes.

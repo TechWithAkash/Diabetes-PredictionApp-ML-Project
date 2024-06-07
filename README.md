@@ -3,6 +3,10 @@
 # Dia-Insight: Diabetes Prediction Application 🩺💉
 
 ![Designer (1)](https://github.com/TechWithAkash/Diabetes-PredictionApp-ML-Project/assets/134140640/d0f7f638-864b-4ffa-b084-501ee2cd1c39)
+<p align="center">
+  <img src="![Designer (1)](https://github.com/TechWithAkash/Diabetes-PredictionApp-ML-Project/assets/134140640/d0f7f638-864b-4ffa-b084-501ee2cd1c39)
+" alt="Dia-Insight Logo" width="200px">
+</p>
 
 
 ## Overview 🌟

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dia-Insight</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/predict.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="/">Dia-Insight</a></div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/predict">Prediction</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="login">
+      <h1>Diabetes Prediction</h1>
+      <form action="{{ url_for('predict_datapoint') }}" method="post">
+        <div class="form-group">
+          <label for="Pregnancies">Pregnancies</label>
+          <input type="text" id="Pregnancies" name="Pregnancies" placeholder="Number of Pregnancies" required>
+          <i class="fas fa-baby-carriage form-icon"></i>
+        </div>
+        <div class="form-group">
+          <label for="Glucose">Glucose</label>
+          <input type="text" id="Glucose" name="Glucose" placeholder="Glucose Level" required>
+          <i class="fas fa-tint form-icon"></i>
+        </div>
+        <div class="form-group">
+          <label for="BloodPressure">Blood Pressure</label>
+          <input type="text" id="BloodPressure" name="BloodPressure" placeholder="Blood Pressure (mmHg)" required>
+          <i class="fas fa-heartbeat form-icon"></i>
+        </div>
+        <div class="form-group">
+          <label for="SkinThickness">Skin Thickness</label>
+          <input type="text" id="SkinThickness" name="SkinThickness" placeholder="Skin Thickness (mm)" required>
+          <i class="fas fa-ruler form-icon"></i>
+        </div>
+        <div class="form-group">
+          <label for="Insulin">Insulin</label>
+          <input type="text" id="Insulin" name="Insulin" placeholder="Insulin Level" required>
+          <i class="fas fa-syringe form-icon"></i>
+        </div>
+        <div class="form-group">
+          <label for="BMI">BMI</label>
+          <input type="text" id="BMI" name="BMI" placeholder="Body Mass Index" required>
+          <i class="fas fa-weight form-icon"></i>
+        </div>
+        <div class="form-group">
+          <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+          <input type="text" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function" required>
+          <i class="fas fa-dna form-icon"></i>
+        </div>
+        <div class="form-group">
+          <label for="Age">Age</label>
+          <input type="text" id="Age" name="Age" placeholder="Age (years)" required>
+          <i class="fas fa-calendar-alt form-icon"></i>
+        </div>
+        <button type="submit" class="cta-btn">Predict</button>
+      </form>
+      <div class="result">
+        <h2>Prediction Result:</h2>
+        <p>{{ result }}</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="contact-info">
+        <h4>Contact Us</h4>
+        <p>Email: info@dia-insight.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+      <div class="social-media">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2023 Dia-Insight. All rights reserved.</p>
+  </footer>
+  <script src="static/js/script.js"></script>
+</body>
+</html>

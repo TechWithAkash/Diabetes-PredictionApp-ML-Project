@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dia-Insight</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+ <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo"><a href="/">Dia-Insight</a></div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="/predict">Prediction</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Empowering Early Detection</h1>
+        <p>Predict your risk of diabetes with our advanced algorithm.</p>
+        <a href="/predict"><button type="button">Get Started</button></a>
+      </div>
+    </section>
+    <section class="features">
+      <h2>Key Features</h2>
+      <div class="feature-cards">
+        <div class="card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Accurate Prediction</h3>
+          <p>Our algorithm uses proven medical data for reliable predictions.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-user-md"></i>
+          <h3>Expert Guidance</h3>
+          <p>Get personalized recommendations from our team of medical experts.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-lock"></i>
+          <h3>Secure and Confidential</h3>
+          <p>Your data is protected with industry-standard encryption.</p>
+        </div>
+      </div>
+    </section>
+    <section class="testimonials">
+      <h2>What Our Users Say</h2>
+      <div class="carousel">
+        <div class="testimonial">
+          <img src="static/images/user2.jpg" alt="User 1">
+          <p>"Dia-Insight has been a game-changer for me. The accurate predictions and expert advice have helped me take control of my health."</p>
+          <h4>- Chris Wenloauska</h4>
+        </div>
+        <div class="testimonial">
+          <img src="static/images/ram.jpg" alt="User 2">
+          <p>"I highly recommend Dia-Insight to anyone looking for a reliable and user-friendly diabetes prediction tool."</p>
+          <h4>- Jane Smith</h4>
+        </div>
+        <div class="testimonial">
+          <img src="static/images/user3.jpg" alt="User 3">
+          <p>"The user interface is clean and easy to use. The insights provided have been invaluable."</p>
+          <h4>- Michael Brown</h4>
+        </div>
+      </div>
+    </section>
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>How does the prediction algorithm work?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Our prediction algorithm uses a combination of machine learning techniques and medical data to analyze various factors such as age, BMI, blood pressure, and other relevant health indicators to determine the risk of developing diabetes.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>Is my data secure?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Yes, your data is protected with industry-standard encryption and is kept confidential.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>Can I trust the predictions?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Our algorithm is built on well-researched medical data and is designed to provide accurate and reliable predictions. However, it is always recommended to consult with a healthcare provider for a professional diagnosis.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3>How often should I use the prediction tool?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>It is recommended to use the prediction tool regularly, especially if there are changes in your health status or lifestyle. Regular monitoring can help in early detection and better management of diabetes risk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="contact-info">
+        <h4>Contact Us</h4>
+        <p>Email: info@dia-insight.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+      <div class="social-media">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2023 Dia-Insight. All rights reserved.</p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const accordionItems = document.querySelectorAll('.accordion-item');
+      accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+          const content = item.querySelector('.accordion-content');
+          item.classList.toggle('active');
+          if (item.classList.contains('active')) {
+            content.style.display = 'block';
+            content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+            content.style.display = 'none';
+            content.style.maxHeight = 0;
+          }
+        });
+      });
+
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+    });
+  </script>
+</body>
+</html>

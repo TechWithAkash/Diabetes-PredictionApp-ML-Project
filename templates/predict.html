@@ -1,103 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dia-Insight</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/predict.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia-Insight</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem 2rem 0.5rem 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .form-icon {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+        .cta-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta-btn:hover {
+            background-color: #2980b9;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #resultImage {
+            width: 150px;
+            height: 150px;
+            margin: 1rem auto;
+        }
+        #resultText {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        .result-details {
+            margin-top: 1rem;
+            text-align: left;
+        }
+        .result-details h3 {
+            margin-bottom: 0.5rem;
+        }
+        .result-details ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+        .result-details li {
+            margin-bottom: 0.5rem;
+        }
+        .recommendation {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e8f4fd;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo"><a href="/">Dia-Insight</a></div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="/predict">Prediction</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <section class="login">
-      <h1>Diabetes Prediction</h1>
-      <form action="{{ url_for('predict_datapoint') }}" method="post">
-        <div class="form-group">
-          <label for="Pregnancies">Pregnancies</label>
-          <input type="text" id="Pregnancies" name="Pregnancies" placeholder="Number of Pregnancies" required>
-          <i class="fas fa-baby-carriage form-icon"></i>
+    <header>
+        <nav>
+            <div class="logo"><a href="/">Dia-Insight</a></div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/predict">Prediction</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Diabetes Prediction</h1>
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="Pregnancies">Pregnancies</label>
+                <input type="text" id="Pregnancies" name="Pregnancies" placeholder="Number of Pregnancies" required>
+                <i class="fas fa-baby-carriage form-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="Glucose">Glucose</label>
+                <input type="text" id="Glucose" name="Glucose" placeholder="Glucose Level" required>
+                <i class="fas fa-tint form-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="BloodPressure">Blood Pressure</label>
+                <input type="text" id="BloodPressure" name="BloodPressure" placeholder="Blood Pressure (mmHg)" required>
+                <i class="fas fa-heartbeat form-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="SkinThickness">Skin Thickness</label>
+                <input type="text" id="SkinThickness" name="SkinThickness" placeholder="Skin Thickness (mm)" required>
+                <i class="fas fa-ruler form-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="Insulin">Insulin</label>
+                <input type="text" id="Insulin" name="Insulin" placeholder="Insulin Level" required>
+                <i class="fas fa-syringe form-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="BMI">BMI</label>
+                <input type="text" id="BMI" name="BMI" placeholder="Body Mass Index" required>
+                <i class="fas fa-weight form-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+                <input type="text" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function" required>
+                <i class="fas fa-dna form-icon"></i>
+            </div>
+            <div class="form-group">
+                <label for="Age">Age</label>
+                <input type="text" id="Age" name="Age" placeholder="Age (years)" required>
+                <i class="fas fa-calendar-alt form-icon"></i>
+            </div>
+            <button type="submit" class="cta-btn">Predict</button>
+        </form>
+    </main>
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Prediction Result</h2>
+            <img id="resultImage" src="" alt="Prediction Result">
+            <p id="resultText"></p>
+            <div class="result-details">
+                <h3>Key Factors:</h3>
+                <ul id="keyFactors"></ul>
+            </div>
+            <div class="recommendation">
+                <h3>Recommendations:</h3>
+                <p id="recommendationText"></p>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="Glucose">Glucose</label>
-          <input type="text" id="Glucose" name="Glucose" placeholder="Glucose Level" required>
-          <i class="fas fa-tint form-icon"></i>
-        </div>
-        <div class="form-group">
-          <label for="BloodPressure">Blood Pressure</label>
-          <input type="text" id="BloodPressure" name="BloodPressure" placeholder="Blood Pressure (mmHg)" required>
-          <i class="fas fa-heartbeat form-icon"></i>
-        </div>
-        <div class="form-group">
-          <label for="SkinThickness">Skin Thickness</label>
-          <input type="text" id="SkinThickness" name="SkinThickness" placeholder="Skin Thickness (mm)" required>
-          <i class="fas fa-ruler form-icon"></i>
-        </div>
-        <div class="form-group">
-          <label for="Insulin">Insulin</label>
-          <input type="text" id="Insulin" name="Insulin" placeholder="Insulin Level" required>
-          <i class="fas fa-syringe form-icon"></i>
-        </div>
-        <div class="form-group">
-          <label for="BMI">BMI</label>
-          <input type="text" id="BMI" name="BMI" placeholder="Body Mass Index" required>
-          <i class="fas fa-weight form-icon"></i>
-        </div>
-        <div class="form-group">
-          <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
-          <input type="text" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function" required>
-          <i class="fas fa-dna form-icon"></i>
-        </div>
-        <div class="form-group">
-          <label for="Age">Age</label>
-          <input type="text" id="Age" name="Age" placeholder="Age (years)" required>
-          <i class="fas fa-calendar-alt form-icon"></i>
-        </div>
-        <button type="submit" class="cta-btn">Predict</button>
-      </form>
-      <div class="result">
-        <h2>Prediction Result:</h2>
-        <p>{{ result }}</p>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="footer-content">
-      <div class="contact-info">
-        <h4>Contact Us</h4>
-        <p>Email: info@dia-insight.com</p>
-        <p>Phone: 123-456-7890</p>
-      </div>
-      <div class="social-media">
-        <h4>Follow Us</h4>
-        <ul>
-          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-        </ul>
-      </div>
     </div>
-    <p class="copyright">&copy; 2023 Dia-Insight. All rights reserved.</p>
-  </footer>
-  <script src="static/js/script.js"></script>
+    <footer>
+        <p>&copy; 2023 Dia-Insight. All rights reserved.</p>
+    </footer>
+    <script>
+        const form = document.getElementById('predictionForm');
+        const modal = document.getElementById('resultModal');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        const resultImage = document.getElementById('resultImage');
+        const resultText = document.getElementById('resultText');
+        const keyFactors = document.getElementById('keyFactors');
+        const recommendationText = document.getElementById('recommendationText');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would normally send the form data to the server and get a response
+            // For this example, we'll just simulate a response
+            const randomResult = Math.random() < 0.5;
+            
+            if (randomResult) {
+                resultText.textContent = "Based on the provided information, there is a higher risk of diabetes.";
+                resultText.style.color = "#e74c3c";
+                keyFactors.innerHTML = `
+                    <li>High glucose level</li>
+                    <li>Elevated BMI</li>
+                    <li>Family history of diabetes</li>
+                `;
+                recommendationText.textContent = "It's recommended to consult with a healthcare professional for a thorough evaluation. Consider lifestyle changes such as a balanced diet, regular exercise, and monitoring your blood sugar levels.";
+            } else {
+                resultText.textContent = "Based on the provided information, there is a lower risk of diabetes.";
+                resultText.style.color = "#2ecc71";
+                keyFactors.innerHTML = `
+                    <li>Normal glucose level</li>
+                    <li>Healthy BMI</li>
+                    <li>No significant family history of diabetes</li>
+                `;
+                recommendationText.textContent = "Continue maintaining a healthy lifestyle with a balanced diet and regular exercise. It's always a good idea to have regular check-ups with your healthcare provider.";
+            }
+            
+            modal.style.display = 'block';
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -29,7 +29,7 @@ Dia-Insight is an innovative web application designed to empower users with earl
 ## Installation 🛠️
 1. Clone the repository:
    ```bash
-   [git clone https://github.com/yourusername/dia-insight.git](https://github.com/TechWithAkash/Diabetes-PredictionApp-ML-Project.git)
+   [git clone https://github.com/TechWithAkash/dia-insight.git](https://github.com/TechWithAkash/Diabetes-PredictionApp-ML-Project.git)
    ```
 2. Install dependencies:
    ```bash

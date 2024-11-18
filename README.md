@@ -1,6 +1,4 @@
-Here's a more professional and polished version of your README file:
 
----
 
 # **Dia-Insight: Diabetes Prediction Application** 🩺💉
 

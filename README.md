@@ -28,10 +28,9 @@ Here's a more professional and polished version of your README file:
 
 ## **How to Use** 📝
 
-1. Visit the **[Dia-Insight website](#)**.
-2. Complete the prediction form with relevant health information (e.g., age, BMI, glucose levels, etc.).
-3. Click the **"Predict"** button to get instant results.
-4. Receive a detailed diabetes risk assessment along with personalized health recommendations.
+1. Complete the prediction form with relevant health information (e.g., age, BMI, glucose levels, etc.).
+2. Click the **"Predict"** button to get instant results.
+3. Receive a detailed diabetes risk assessment along with personalized health recommendations.
 
 ---
 

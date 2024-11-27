@@ -1,4 +1,6 @@
+Here’s a revised version of your README file with the requested professional touch and the embedded video in playing mode:
 
+---
 
 # **Dia-Insight: Diabetes Prediction Application** 🩺💉
 
@@ -10,8 +12,17 @@
 **Dia-Insight** is a cutting-edge web application designed to assist users in the early detection of diabetes. By leveraging state-of-the-art machine learning algorithms and validated medical data, it delivers precise predictions to help users assess their risk of developing diabetes. This proactive approach promotes awareness and enables timely medical interventions.
 
 ---
-## https://github.com/user-attachments/assets/5e10705e-0db8-482f-bb85-6bddb0bdc8b1
 
+## **Demo Video** 🎥
+
+<p align="center">
+  <video width="720" height="400" controls>
+    <source src="https://github.com/user-attachments/assets/5e10705e-0db8-482f-bb85-6bddb0bdc8b1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</p>
+
+---
 
 ## **Key Features** 🚀
 
@@ -107,4 +118,4 @@ If you have any questions or suggestions, feel free to reach out:
 
 ---
 
-This README file is now polished to reflect professionalism while ensuring clarity and engagement. Let me know if you’d like further refinements!
+Let me know if you need further customization!

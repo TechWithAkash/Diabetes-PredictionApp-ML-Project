@@ -15,12 +15,8 @@ Here’s a revised version of your README file with the requested professional t
 
 ## **Demo Video** 🎥
 
-<p align="center">
-  <video width="720" height="400" controls>
-    <source src="https://github.com/user-attachments/assets/5e10705e-0db8-482f-bb85-6bddb0bdc8b1" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</p>
+[![Demo Video](https://img.youtube.com/vi/placeholder/0.jpg)](https://github.com/user-attachments/assets/5e10705e-0db8-482f-bb85-6bddb0bdc8b1)
+
 
 ---
 

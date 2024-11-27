@@ -1,8 +1,6 @@
-Here’s a revised version of your README file with the requested professional touch and the embedded video in playing mode:
 
----
 
-# **Dia-Insight: Diabetes Prediction Application** 🩺💉
+#                                                             **Dia-Insight: Diabetes Prediction Application** 🩺💉
 
 <p align="center">
   <img src="https://github.com/TechWithAkash/Diabetes-PredictionApp-ML-Project/assets/134140640/d0f7f638-864b-4ffa-b084-501ee2cd1c39" alt="Dia-Insight Logo" width="200px" style="border-radius:50%;">
